@@ -1,0 +1,9 @@
+#!/bin/bash
+
+docker run --rm --detach --privileged -it \
+	--net=host \
+	--hostname pwn \
+	--name pwndock \
+	pwndock \
+	bash \
+    && echo "[+] Started"
