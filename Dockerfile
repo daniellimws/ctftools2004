@@ -15,7 +15,7 @@ RUN mkdir ~/tools
 # base tools
 RUN apt update \
     && apt -y install vim patchelf netcat socat strace ltrace curl wget git gdb \
-    && apt -y install man sudo inetutils-ping openssl-dev rust \
+    && apt -y install man sudo inetutils-ping libssl-dev \
     && apt clean
 
 RUN apt update \
@@ -49,7 +49,7 @@ RUN cd ~/tools \
     && cd build; make && make install
 
 # pwntools
-RUN python3 -m pip install pwntools
+RUN CRYPTOGRAPHY_DONT_BUILD_RUST=1 python3 -m pip install pwntools
 
 # one_gadget
 RUN apt update \
