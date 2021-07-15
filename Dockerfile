@@ -20,7 +20,9 @@ RUN apt update \
 
 RUN apt update \
     && apt -y install python3-dev python3-pip \
-    && apt clean
+    && apt clean \
+    && ln -s /usr/bin/python3 /usr/bin/python \
+    && ln -s /usr/bin/pip3 /usr/bin/pip
 
 RUN python3 -m pip install --upgrade pip
 
