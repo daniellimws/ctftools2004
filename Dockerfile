@@ -149,7 +149,9 @@ RUN pip install tldr
 RUN apt upgrade -y vim \
     && git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime \
     && /bin/sh ~/.vim_runtime/install_awesome_vimrc.sh \
-    && /bin/bash -c "echo inoremap jk <ESC> >> ~/.vimrc"
+    && /bin/bash -c "echo inoremap jk \<ESC\> >> ~/.vimrc"
+
+RUN apt install -y neovim
 
 # work env
 WORKDIR /root/ctfs
